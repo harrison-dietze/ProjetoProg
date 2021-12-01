@@ -7,6 +7,7 @@ import { LoginService } from './login.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  isCriacao = true;
   resultado: '';
   title = 'Projeto';
   constructor(private LoginService: LoginService) {}

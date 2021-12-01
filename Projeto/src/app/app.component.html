@@ -1,3 +1,19 @@
-<input type="text" #user />
-
-<button (click)="testar(user.value)">Testar</button> {{ resultado }}
+<form [formGroup]="loginForm">
+  <div>
+    <label for="usuario">Usuário: </label>
+    <input id="usuario" type="text" formControlName="usuario" />
+  </div>
+  <div>
+    <label for="senha">Senha: </label>
+    <input id="senha" type="password" formControlName="senha" />
+  </div>
+  <div *ngIf="isCriacao">
+    <span>Já possui usuário?</span>
+    <button (click)="isCriacao = false">Logar</button>
+  </div>
+  <div *ngIf="!isCriacao">
+    <button (click)="entrarUsuario(loginForm.value)">Entrar</button>
+    <button (click)="isCriacao = true">Novo</button>
+  </div>
+  <button (click)="criarUsuario(loginForm.value)">Criar Usuário</button>
+</form>
