@@ -55,7 +55,11 @@ export class LoginComponent implements OnInit {
     this.dados.append('usuarioCriar', JSON.stringify(this.loginForm.value));
     this.LoginService.loginService(this.dados).subscribe(
       (res) => {
-        this.usuarioLogado = res;
+        if (res != 'Já existe um usuário com este nome.') {
+          this.usuarioLogado = res;
+        } else {
+          alert(res);
+        }
         console.log(this.usuarioLogado);
       },
       (error) => {
