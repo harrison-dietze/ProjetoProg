@@ -9,7 +9,7 @@ import { Usuario } from './usuario.interface';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  usuario: Usuario;
+  usuarioLogado: Usuario;
 
   loginForm: FormGroup;
   dados: FormData;
@@ -39,10 +39,10 @@ export class LoginComponent implements OnInit {
 
   onEntrarUsuario(): void {
     this.dados = new FormData();
-    this.dados.append('userEntrar', JSON.stringify(this.loginForm.value));
-    this.LoginService.logarService(this.dados).subscribe(
+    this.dados.append('usuarioEntrar', JSON.stringify(this.loginForm.value));
+    this.LoginService.loginService(this.dados).subscribe(
       (res) => {
-        this.resultado = res;
+        this.usuarioLogado = res;
       },
       (error) => {
         console.log(error);
@@ -50,5 +50,17 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  onCriarUsuario() {}
+  onCriarUsuario() {
+    this.dados = new FormData();
+    this.dados.append('usuarioCriar', JSON.stringify(this.loginForm.value));
+    this.LoginService.loginService(this.dados).subscribe(
+      (res) => {
+        this.usuarioLogado = res;
+        console.log(this.usuarioLogado);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }

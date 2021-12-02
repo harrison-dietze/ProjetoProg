@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
 export class LoginService {
   constructor(private http: HttpClient) {}
 
-  logarService(user: FormData): Observable<any> {
+  loginService(usuario: FormData): Observable<any> {
     return this.http.post<any>(
       'http://localhost/backend/AngularEndpoints.php',
-      user
+      usuario
     );
   }
 }

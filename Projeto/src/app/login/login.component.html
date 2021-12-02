@@ -15,9 +15,7 @@
     <button type="button" (click)="isCriacao = true">Novo</button>
     <button type="submit">Entrar</button>
   </div>
-  <button type="submit" *ngIf="isCriacao" (click)="criarUsuario()">
+  <button type="submit" *ngIf="isCriacao" (click)="onCriarUsuario()">
     Criar Usuário
   </button>
 </form>
-
-<div>Você logou como {{ resultado }}!</div>
