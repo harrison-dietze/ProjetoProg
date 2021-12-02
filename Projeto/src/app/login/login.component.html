@@ -32,12 +32,7 @@
       >
         Login
       </button>
-      <button
-        class="button-register-login"
-        type="submit"
-        *ngIf="isCriacao"
-        (click)="onCriarUsuario()"
-      >
+      <button class="button-register-login" type="submit" *ngIf="isCriacao">
         Registrar
       </button>
     </div>
@@ -53,7 +48,3 @@
     <button class="button-entrar-login" type="submit">Entrar</button>
   </div>
 </form>
-
-<br />
-
-<div>Você logou como {{ resultado }}!</div>
