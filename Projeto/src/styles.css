@@ -13,7 +13,7 @@
     width: 100%;
 }
 
-/** TELA DE LOGIN **/ 
+/** TELA DE LOGIN **/
 
 .form-login-login{
     display: flex;
@@ -42,11 +42,10 @@
 }
 
 .div-login-login {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .div-buttons-login {  
@@ -56,11 +55,9 @@
 
 /**
 .label-usuario-login {
-
 }
 
 .label-senha-login {
-
 }
 **/
 
@@ -122,4 +119,4 @@
     color: rgba(211, 211, 211, 0.884);
 }
 
-/** TELA A SER PROJETADA **/ 
+/** TELA A SER PROJETADA **/

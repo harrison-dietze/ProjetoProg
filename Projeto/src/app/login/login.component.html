@@ -1,8 +1,39 @@
-
-  <form class="form-login-login" [formGroup]="loginForm" (ngSubmit)="onLogin(isCriacao)">
-    <div class="div-usuario-login">
-      <label class="label-usuario-login" for="usuario">Usuário: </label>
-      <input class="input-usuario-login" id="usuario" type="text" formControlName="nome" />
+<form
+  class="form-login-login"
+  [formGroup]="loginForm"
+>
+  <div class="div-usuario-login">
+    <label class="label-usuario-login" for="usuario">Usuário: </label>
+    <input
+      class="input-usuario-login"
+      id="usuario"
+      type="text"
+      formControlName="nome"
+    />
+  </div>
+  <div class="div-senha-login">
+    <label class="label-senha-login" for="senha">Senha: </label>
+    <input
+      class="input-senha-login"
+      id="senha"
+      type="password"
+      formControlName="senha"
+    />
+  </div>
+  <br />
+  <div class="div-login-login" *ngIf="isCriacao">
+    <span>Já possui usuário?</span>
+    <div class="div-buttons-login">
+      <button
+        class="button-login-login"
+        type="button"
+        (click)="isCriacao = false"
+      >
+        Login
+      </button>
+      <button class="button-register-login" type="submit" *ngIf="isCriacao">
+        Registrar
+      </button>
     </div>
     <br>
     <div class="div-senha-login">
