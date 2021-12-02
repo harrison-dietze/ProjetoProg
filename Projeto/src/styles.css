@@ -1,4 +1,55 @@
+.body{
+    display: flex;
+    align-items:center;
+    height: 800px;
+    justify-content: center;
+    background-color: rgb(28, 26, 31);
+    font-family: Segoe UI, Segoe UI Midlevel, Segoe WP, Arial, sans-serif;
+    color: rgba(211, 211, 211, 0.884);
+}
+
 /** TELA DE LOGIN **/ 
+
+.form-login-login{
+    display: flex;
+    justify-content:space-around 10px;
+    flex-direction: column;
+}
+
+.div-usuario-login {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.div-senha-login {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.div-login-login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+.div-buttons-login {  
+    display: flex;
+    justify-content: space-between 10px;
+}
+
+.label-usuario-login {
+
+}
+
+.label-senha-login {
+
+}
 
 .input-usuario-login {
 
