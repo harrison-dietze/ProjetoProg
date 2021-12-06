@@ -28,21 +28,19 @@
     />
   </div>
   <br />
-  <div *ngIf="isCriacao">
-    <label class="div-senha-validacao-login" for="senha"
-      >Repita a senha:
-    </label>
+  <div class="div-senha-validacao-login" *ngIf="isCriacao">
+    <label for="senha">Repita a senha: </label>
     <input
       [formControl]="senhaValidacao"
       class="input-senha-login"
       id="senhaValidacao"
       type="password"
     />
-    <span class="aviso" *ngIf="!isSenhasIguais"
-      >As senhas precisam ser iguais.</span
-    >
   </div>
-  <br />
+  <span class="aviso" *ngIf="!isSenhasIguais"
+    >As senhas precisam ser iguais.</span
+  >
+  <span class="aviso" *ngIf="isSenhasIguais"><br /></span>
   <div class="div-login-login" *ngIf="isCriacao">
     <button class="button-register-login" type="submit" *ngIf="isCriacao">
       Registrar
