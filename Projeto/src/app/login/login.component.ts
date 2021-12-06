@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../login.service';
 import { Usuario } from './usuario.interface';
 
@@ -10,6 +9,7 @@ import { Usuario } from './usuario.interface';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  usuarioLogado: Usuario;
   senhaValidacao = new FormControl('');
 
   loginForm: FormGroup;
@@ -21,10 +21,7 @@ export class LoginComponent implements OnInit {
   marcarNome: boolean = false;
   marcarSenha: boolean = false;
 
-  constructor(
-    private LoginService: LoginService,
-    private CookieService: CookieService
-  ) {}
+  constructor(private LoginService: LoginService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -33,11 +30,10 @@ export class LoginComponent implements OnInit {
     });
 
     this.senhaValidacao = new FormControl('');
-    const isLogado: boolean = this.CookieService.check('test');
   }
 
   onLogin(isCriacao: boolean) {
-    if (!this.verificarCamposObrigatorios()) {
+    if (this.verificarCamposObrigatorios()) {
       return;
     }
 
@@ -56,7 +52,7 @@ export class LoginComponent implements OnInit {
     this.dados.append('usuarioEntrar', JSON.stringify(this.loginForm.value));
     this.LoginService.loginService(this.dados).subscribe(
       (res) => {
-        this.CookieService.set('usuario', res);
+        this.usuarioLogado = res;
       },
       (error) => {
         console.log(error);
@@ -70,10 +66,11 @@ export class LoginComponent implements OnInit {
     this.LoginService.loginService(this.dados).subscribe(
       (res) => {
         if (res != 'Já existe um usuário com este nome.') {
-          this.CookieService.set('usuario', res);
+          this.usuarioLogado = res;
         } else {
           alert(res);
         }
+        console.log(this.usuarioLogado);
       },
       (error) => {
         console.log(error);
@@ -104,8 +101,6 @@ export class LoginComponent implements OnInit {
     }
     if (this.marcarSenha == true || this.marcarNome == true) {
       return false;
-    } else {
-      return true;
     }
   }
 }

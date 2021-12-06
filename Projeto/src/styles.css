@@ -16,35 +16,34 @@
 /** TELA DE LOGIN **/
 
 .form-login-login {
-  max-width: 100%;
-  align-items: center;
   display: flex;
   flex-direction: column;
 }
 
 .div-usuario-login {
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .div-senha-login {
-  margin-top: 2%;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .div-senha-validacao-login {
-  margin-top: 2%;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .div-login-login {
-  margin-top: 3%;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -54,15 +53,16 @@
   justify-content: space-between;
 }
 
+/**
 .label-usuario-login {
 }
 
 .label-senha-login {
 }
+**/
 
 .input-usuario-login {
-  align-items: center;
-  width: 100%;
+  width: 99%;
   border-style: unset;
   background-color: rgba(211, 211, 211, 0.884);
   border-radius: 3px;
@@ -71,7 +71,7 @@
 }
 
 .input-senha-login {
-  width: 100%;
+  width: 99%;
   border-style: unset;
   background-color: rgba(211, 211, 211, 0.884);
   border-radius: 3px;
@@ -94,8 +94,7 @@
 }
 
 .button-register-login {
-  align-self: center;
-  width: 70%;
+  width: 50%;
   font-family: Segoe UI, Segoe UI Midlevel, Segoe WP, Arial, sans-serif;
   font-size: large;
   border-style: unset;
@@ -125,6 +124,5 @@
 }
 
 .aviso {
-  max-width: 80%;
   color: rgb(255, 137, 137);
 }
