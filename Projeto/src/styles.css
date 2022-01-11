@@ -1,7 +1,6 @@
 .body {
   display: flex;
   align-items: center;
-  height: 800px;
   justify-content: center;
   background-color: rgb(32, 33, 36);
   font-family: Segoe UI, Segoe UI Midlevel, Segoe WP, Arial, sans-serif;

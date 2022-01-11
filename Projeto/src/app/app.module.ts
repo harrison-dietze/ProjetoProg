@@ -7,10 +7,17 @@ import { LoginService } from './login.service';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './routing/routing.module';
+import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent],
-  imports: [HttpClientModule, BrowserModule, ReactiveFormsModule],
+  declarations: [AppComponent, LoginComponent, HomeComponent, CabecalhoComponent],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+  ],
   providers: [LoginService],
   bootstrap: [AppComponent],
 })
