@@ -1,6 +1,6 @@
 <?php
 define("HOST","localhost");
-define("DB_NAME","clinica");
+define("DB_NAME","cleimstore");
 define("DB_USER","root");
 define("DB_PASSWORD","");
 

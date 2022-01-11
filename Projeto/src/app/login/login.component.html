@@ -6,7 +6,7 @@
   <div class="div-usuario-login">
     <div>
       <label class="label-usuario-login" for="usuario">Usuário: </label>
-      <span class="aviso" *ngIf="marcarNome">*</span>
+      <span class="aviso" *ngIf="naoPreenchidos.nome">*</span>
     </div>
     <input
       class="input-usuario-login"
@@ -18,7 +18,7 @@
   <div class="div-senha-login">
     <div>
       <label class="label-senha-login" for="senha">Senha: </label>
-      <span class="aviso" *ngIf="marcarSenha">*</span>
+      <span class="aviso" *ngIf="naoPreenchidos.senha">*</span>
     </div>
     <input
       class="input-senha-login"

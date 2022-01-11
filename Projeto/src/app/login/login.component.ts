@@ -10,40 +10,36 @@ import { Usuario } from './usuario.interface';
 })
 export class LoginComponent implements OnInit {
   usuarioLogado: Usuario;
-
-  senhaValidacao = new FormControl('');
+  senhaValidacao = new FormControl();
 
   loginForm: FormGroup;
   dados: FormData;
 
-  isCriacao: boolean = true;
+  isCriacao = true;
   resultado: any;
-  isSenhasIguais: boolean = true;
-  marcarNome: boolean = false;
-  marcarSenha: boolean = false;
+  isSenhasIguais = true;
+
+  naoPreenchidos = { nome: false, senha: false, senhaValidacao: false };
 
   constructor(private LoginService: LoginService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      nome: new FormControl(''),
-      senha: new FormControl(''),
+      nome: new FormControl('', {
+        validators: [Validators.required],
+      }),
+      senha: new FormControl('', { validators: [Validators.required] }),
     });
 
-    this.senhaValidacao = new FormControl('');
+    this.senhaValidacao = new FormControl('', {
+      validators: [Validators.required],
+    });
   }
 
   onLogin(isCriacao: boolean) {
-    if (!this.verificarCamposObrigatorios()) {
-      return;
-    }
-
     if (!isCriacao) {
       this.onEntrarUsuario();
     } else {
-      if (!this.verificarSenhasIguais()) {
-        return;
-      }
       this.onCriarUsuario();
     }
   }
@@ -53,7 +49,11 @@ export class LoginComponent implements OnInit {
     this.dados.append('usuarioEntrar', JSON.stringify(this.loginForm.value));
     this.LoginService.loginService(this.dados).subscribe(
       (res) => {
-        this.usuarioLogado = res;
+        if (res != 'Usuário ou senha incorretos.') {
+          this.usuarioLogado = res;
+        } else {
+          alert(res);
+        }
       },
       (error) => {
         console.log(error);
@@ -62,6 +62,12 @@ export class LoginComponent implements OnInit {
   }
 
   onCriarUsuario() {
+    if (!this.verificarCamposObrigatorios(this.isCriacao)) {
+      return;
+    }
+    if (!this.verificarSenhasIguais()) {
+      return;
+    }
     this.dados = new FormData();
     this.dados.append('usuarioCriar', JSON.stringify(this.loginForm.value));
     this.LoginService.loginService(this.dados).subscribe(
@@ -88,18 +94,24 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  verificarCamposObrigatorios() {
+  verificarCamposObrigatorios(isCriacao) {
+    this.naoPreenchidos = { nome: false, senha: false, senhaValidacao: false };
     if (this.loginForm.value.nome.toString().length < 4) {
-      this.marcarNome = true;
-    } else {
-      this.marcarNome = false;
+      this.naoPreenchidos.nome = true;
     }
     if (this.loginForm.value.senha.toString().length < 6) {
-      this.marcarSenha = true;
-    } else {
-      this.marcarSenha = false;
+      this.naoPreenchidos.senha = true;
     }
-    if (this.marcarSenha == true || this.marcarNome == true) {
+    if (isCriacao) {
+      if (this.senhaValidacao.value == '') {
+        this.naoPreenchidos.senhaValidacao = true;
+      }
+    }
+    if (
+      this.naoPreenchidos['nome'] ||
+      this.naoPreenchidos['senha'] ||
+      this.naoPreenchidos['senhaValidacao']
+    ) {
       return false;
     } else {
       return true;
