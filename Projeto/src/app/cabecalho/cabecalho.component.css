@@ -1,16 +1,59 @@
 .icon-menu {
-  position: absolute;
+  position: fixed;
   top: 1%;
   left: 1%;
   cursor: pointer;
   z-index: 9999;
 }
 .menu {
-  position: absolute;
-  top: 1%;
+  cursor: pointer;
+  position: fixed;
+  top: 5%;
   left: 1%;
+}
+
+.search {
+  cursor: pointer;
+  border-radius: 10px;
+  position: fixed;
+  top: 1%;
+  right: 20%;
+  width: 7%;
+  height: 4.5%;
+}
+
+.carrinho-icon {
+  cursor: pointer;
+  position: fixed;
+  top: -0.5%;
+  right: 1%;
 }
 
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  border-radius: 10px;
+  min-width: 100%;
+  margin-right: 10%;
+  margin-top: 10%;
+  padding: 5%;
+  background-color: rgb(32, 33, 36);
+}
+
+li:hover {
+  font-size: larger;
+  color: black;
+  background-color: aliceblue;
+}
+
+input {
+  outline: none;
+  height: 3.5%;
+  width: 50%;
+  position: fixed;
+  left: 20%;
 }

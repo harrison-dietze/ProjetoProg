@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cabecalho',
@@ -8,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class CabecalhoComponent implements OnInit {
   constructor() {}
 
+  pesquisaForm: any;
   menuVisivel = false;
   tratarMenu() {
     this.menuVisivel = !this.menuVisivel;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pesquisaForm = new FormGroup({
+      pesquisa: new FormControl(''),
+    });
+  }
+  onPesquisar = () => {};
 }
