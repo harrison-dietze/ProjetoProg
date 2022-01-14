@@ -1,21 +1,26 @@
 <app-cabecalho [carrinho]="carrinhoIconVisivel"></app-cabecalho>
 <div class="carrinho">
-  <div class="item">
-    <div *ngFor="let item of carrinho" class="card">
-      <img
-        src="{{ item.imagem }}"
-        width="80%"
-        height="80%"
-        class="imagem-item"
-      />
-      <div class="dados">
-        <ul>
-          <li class="descricao">{{ item.descricao }}</li>
-          <li>Quantidade: {{ item.quantidade }}</li>
-          <li class="preco">R$ {{ item.preco * item.quantidade }}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="dados-compra">Total: R$ {{ total }}</div>
+  <app-lista [itens]="carrinho"></app-lista>
 </div>
+<form [formGroup]="enderecoForm">
+  <div class="endereco">
+    <label for="estadoSelect">Estado:</label>
+    <select id="estadoSelect" formControlName="estado">
+      <option value="">Selecione...</option>
+      <option *ngFor="let estado of estados" value="{{ estado.valor }} ">
+        {{ estado.sigla }}
+      </option>
+    </select>
+  </div>
+  <div class="endereco">
+    <label for="cidadeSelect">Cidade:</label>
+    <select id="cidadeSelect" formControlName="cidade">
+      <option value="">Selecione...</option>
+      <option *ngFor="let cidade of cidades" value="{{ cidade }} ">
+        {{ cidade }}
+      </option>
+      >
+    </select>
+  </div>
+</form>
+<div class="dados-compra">Total: R$ {{ totalString }}</div>

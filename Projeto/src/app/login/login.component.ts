@@ -50,7 +50,9 @@ export class LoginComponent implements OnInit {
     this.LoginService.loginService(this.dados).subscribe(
       (res) => {
         if (res != 'Usuário ou senha incorretos.') {
-          this.usuarioLogado = res;
+          localStorage.setItem('nomeUsuario', res.nome);
+          localStorage.setItem('permissao', res.permissao);
+          location.href = 'home';
         } else {
           alert(res);
         }
@@ -73,7 +75,7 @@ export class LoginComponent implements OnInit {
     this.LoginService.loginService(this.dados).subscribe(
       (res) => {
         if (res != 'Já existe um usuário com este nome.') {
-          this.usuarioLogado = res;
+          alert('Usuário criado com sucesso');
         } else {
           alert(res);
         }

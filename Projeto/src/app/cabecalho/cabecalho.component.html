@@ -25,6 +25,8 @@
     <ul>
       <li>Itens mais vendidos</li>
       <li>Categorias</li>
+      <li *ngIf="isAdmin">Cadastro de Produtos</li>
+      <li (click)="logOut()">Sair</li>
     </ul>
   </div>
 </div>

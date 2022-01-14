@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './routing/routing.module';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { ListaComponent } from './lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     HomeComponent,
     CabecalhoComponent,
     CarrinhoComponent,
+    ListaComponent,
   ],
   imports: [
     HttpClientModule,

@@ -20,7 +20,7 @@ if (isset($_POST['usuarioEntrar']) && $_POST['usuarioEntrar']){
     if($verifacao != []) {
         session_start();
         $_SESSION["usuario"] = $nome;
-        echo json_encode($usuario);
+        echo json_encode($verifacao[0]);
     }
     else {
         echo json_encode("Usuário ou senha incorretos.");
