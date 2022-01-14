@@ -9,9 +9,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './routing/routing.module';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, CabecalhoComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    CabecalhoComponent,
+    CarrinhoComponent,
+  ],
   imports: [
     HttpClientModule,
     BrowserModule,

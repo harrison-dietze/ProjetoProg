@@ -1,0 +1,21 @@
+<app-cabecalho [carrinho]="carrinhoIconVisivel"></app-cabecalho>
+<div class="carrinho">
+  <div class="item">
+    <div *ngFor="let item of carrinho" class="card">
+      <img
+        src="{{ item.imagem }}"
+        width="80%"
+        height="80%"
+        class="imagem-item"
+      />
+      <div class="dados">
+        <ul>
+          <li class="descricao">{{ item.descricao }}</li>
+          <li>Quantidade: {{ item.quantidade }}</li>
+          <li class="preco">R$ {{ item.preco * item.quantidade }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="dados-compra">Total: R$ {{ total }}</div>
+</div>

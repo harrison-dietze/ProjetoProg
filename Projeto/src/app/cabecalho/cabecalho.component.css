@@ -36,6 +36,8 @@ ul {
 }
 
 li {
+  border: solid 1px;
+  border-color: aliceblue;
   border-radius: 10px;
   min-width: 100%;
   margin-right: 10%;
@@ -45,7 +47,8 @@ li {
 }
 
 li:hover {
-  font-size: larger;
+  border: solid 1px;
+  border-color: black;
   color: black;
   background-color: aliceblue;
 }

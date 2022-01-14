@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -10,11 +10,10 @@ import { CommonModule } from '@angular/common';
 export class CabecalhoComponent implements OnInit {
   constructor() {}
 
+  @Input() carrinho = true;
+
   pesquisaForm: any;
   menuVisivel = false;
-  tratarMenu() {
-    this.menuVisivel = !this.menuVisivel;
-  }
 
   ngOnInit(): void {
     this.pesquisaForm = new FormGroup({
@@ -22,4 +21,10 @@ export class CabecalhoComponent implements OnInit {
     });
   }
   onPesquisar = () => {};
+  botaoCarrinho = () => {
+    location.href = '/carrinho';
+  };
+  tratarMenu() {
+    this.menuVisivel = !this.menuVisivel;
+  }
 }

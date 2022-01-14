@@ -15,6 +15,8 @@
     </button>
   </form>
   <img
+    *ngIf="carrinho"
+    (click)="botaoCarrinho()"
     class="carrinho-icon"
     width="9%"
     src="https://www.promocaooficinadossonhos.com.br/assets/images/icons/shopping-cart-bosch-white.png"
