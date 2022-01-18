@@ -6,14 +6,13 @@
   margin: 5%;
 }
 .lista {
-  height: 60%;
   overflow-y: scroll;
   overflow-x: hidden;
-  border-radius: 10px;
-  height: 20em;
-  margin-top: 15% !important;
-  margin: 5%;
-  border: solid 2px;
+  height: 25em;
+  margin-top: 10% !important;
+  margin-bottom: 5%;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
   border-color: aliceblue;
 }
 .imagem-item {

@@ -1,5 +1,6 @@
 import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { EnderecoService } from '../endereco.service';
 import { ProdutoCarrinho } from './produto.interface';
 
 @Component({
@@ -11,19 +12,23 @@ export class CarrinhoComponent implements OnInit {
   carrinhoIconVisivel: boolean = false;
   carrinho: ProdutoCarrinho[];
   estados: any[] = [];
+  cidades: any[] = [];
   total: number = 0;
   totalString: string;
   localizacao: any;
   enderecoForm: FormGroup;
 
-  constructor() {}
+  constructor(private EnderecoService: EnderecoService) {}
 
   ngOnInit(): void {
     this.enderecoForm = new FormGroup({
       estado: new FormControl(''),
+      cidade: new FormControl(''),
+      endereco: new FormControl(''),
     });
     this.popularTela();
     this.calcularTotal();
+    this.ouvirEstadoChange();
   }
 
   calcularTotal = () => {
@@ -89,5 +94,17 @@ export class CarrinhoComponent implements OnInit {
       { sigla: 'SC', valor: 42 },
       { sigla: 'PR', valor: 41 },
     ];
+    this.enderecoForm.get('cidade').disable();
+  };
+
+  public ouvirEstadoChange = () => {
+    this.enderecoForm.get('estado').valueChanges.subscribe(() => {
+      this.EnderecoService.cidadeService(
+        this.enderecoForm.get('estado').value
+      ).subscribe((res) => {
+        this.enderecoForm.get('cidade').enable();
+        this.cidades = res;
+      });
+    });
   };
 }

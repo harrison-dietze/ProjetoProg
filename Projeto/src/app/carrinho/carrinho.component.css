@@ -9,6 +9,9 @@
 }
 
 .endereco {
+  margin-top: 1%;
+  border-radius: 10px;
+  width: 25%;
   padding-left: 5%;
   display: flex;
   display: flex;
@@ -16,10 +19,9 @@
 }
 
 .endereco select {
-  width: 25%;
   background-color: rgb(32, 33, 36);
   border-radius: 10px;
-  color: white;
+  color: rgba(211, 211, 211, 0.884);
   border: solid 2px;
   -webkit-appearance: button;
   appearance: button;

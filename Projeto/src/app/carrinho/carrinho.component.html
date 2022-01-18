@@ -17,10 +17,14 @@
     <select id="cidadeSelect" formControlName="cidade">
       <option value="">Selecione...</option>
       <option *ngFor="let cidade of cidades" value="{{ cidade }} ">
-        {{ cidade }}
+        {{ cidade.nome }}
       </option>
       >
     </select>
+  </div>
+  <div class="endereco">
+    <label for="endereco">Endereço:</label>
+    <input id="outro" formControlName="endereco" />
   </div>
 </form>
 <div class="dados-compra">Total: R$ {{ totalString }}</div>
