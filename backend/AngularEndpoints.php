@@ -48,4 +48,32 @@ if (isset($_POST['usuarioCriar']) && $_POST['usuarioCriar']){
         echo json_encode("Já existe um usuário com este nome.");
     }
 }
+
+if (isset($_POST['produtoCadastrar']) && $_POST['produtoCadastrar']){
+
+    $produto = json_decode($_POST['produtoCadastrar']);
+    $nome = $produto->nome;
+    $descricao = $produto->descricao;
+    $valor = $produto->valor;
+    $estoque = $produto->estoque;
+    $imagem = $produto->imagem;
+
+    $sqlVerificar = "SELECT nome FROM produto WHERE nome = '$nome'";
+
+    $db = new DB();
+
+    $verifacao = $db->consultar($sqlVerificar);
+
+    if($verifacao == []){
+        $sqlInserir = "INSERT INTO produto (nome,descricao,valor,estoque,imagem) VALUES ('$nome', '$descricao', '$valor', '$estoque', '$imagem')";
+        $resultado = $db->manipular($sqlInserir);
+        if ($resultado==1) {
+            echo json_encode("Produto cadastrado com sucesso!");
+        }
+    } else {
+        echo json_encode("Já existe um produto com este nome.");
+    }
+}
+
+
 ?>
