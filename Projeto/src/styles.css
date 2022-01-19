@@ -157,3 +157,8 @@ ul {
   display: fixed;
   margin: 50%;
 }
+
+textarea {
+  outline: none;
+  border-radius: 10px;
+}

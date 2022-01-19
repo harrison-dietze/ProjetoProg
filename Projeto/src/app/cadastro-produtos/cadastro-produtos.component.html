@@ -1,9 +1,16 @@
 <app-cabecalho></app-cabecalho>
+<img width="50%" src="{{ imagemURL }}" />
 <form class="cadastro" [formGroup]="produto">
   <label for="nome">Nome:</label>
   <input id="nome" formControlName="nome" />
-  <label for="descricao">Descricão</label>
-  <input id="descricao" formControlName="descricao" />
-  <label class="imagem-file-upload" for="imagem">Imagem:</label>
-  <input accept="image/*" type="file" id="imagem" formControlName="imagem" />
+  <label for="descricao">Descricão:</label>
+  <textarea type="text" id="descricao" formControlName="descricao"></textarea>
+  <label for="imagem">Imagem:</label>
+  <input
+    (change)="fileInput($event.target.files)"
+    accept="image/*"
+    type="file"
+    id="imagem"
+    formControlName="imagem"
+  />
 </form>

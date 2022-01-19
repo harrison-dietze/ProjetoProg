@@ -10,6 +10,7 @@ export class CadastroProdutosComponent implements OnInit {
   constructor() {}
 
   produto: FormGroup;
+  imagemURL = '';
 
   ngOnInit(): void {
     this.produto = new FormGroup({
@@ -18,4 +19,10 @@ export class CadastroProdutosComponent implements OnInit {
       imagem: new FormControl(),
     });
   }
+
+  fileInput = (imagem) => {
+    this.imagemURL = URL.createObjectURL(imagem[0]);
+    this.imagemURL = this.imagemURL.replace('blob:', '');
+    console.log(this.imagemURL);
+  };
 }
