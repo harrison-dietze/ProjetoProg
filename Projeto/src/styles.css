@@ -139,6 +139,7 @@
 }
 
 input {
+  border-radius: 10px;
   outline: none;
 }
 
@@ -150,4 +151,9 @@ ul {
 
 ::-webkit-scrollbar {
   width: 10px;
+}
+
+.cadastro {
+  display: fixed;
+  margin: 50%;
 }

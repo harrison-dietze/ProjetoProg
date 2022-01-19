@@ -1,0 +1,9 @@
+<app-cabecalho></app-cabecalho>
+<form class="cadastro" [formGroup]="produto">
+  <label for="nome">Nome:</label>
+  <input id="nome" formControlName="nome" />
+  <label for="descricao">Descricão</label>
+  <input id="descricao" formControlName="descricao" />
+  <label class="imagem-file-upload" for="imagem">Imagem:</label>
+  <input accept="image/*" type="file" id="imagem" formControlName="imagem" />
+</form>

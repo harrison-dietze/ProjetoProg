@@ -12,6 +12,7 @@ export class CabecalhoComponent implements OnInit {
 
   @Input() carrinho = true;
   isAdmin = false;
+  usuario = '';
 
   pesquisaForm: any;
   menuVisivel = false;
@@ -35,6 +36,10 @@ export class CabecalhoComponent implements OnInit {
     location.href = '';
   };
 
+  direcionarCadastro = () => {
+    location.href = 'cadastro';
+  };
+
   tratarPermissao = () => {
     if (localStorage.getItem('permissao') != 'usuario') {
       this.carrinho = false;
@@ -42,7 +47,8 @@ export class CabecalhoComponent implements OnInit {
     }
 
     if (localStorage.getItem('nomeUsuario')) {
-      alert('Bem vindo, ' + localStorage.getItem('nomeUsuario') + '!');
+      this.usuario = localStorage.getItem('nomeUsuario');
+      //alert('Bem vindo, ' + localStorage.getItem('nomeUsuario') + '!');
     } else {
       location.href = '';
     }

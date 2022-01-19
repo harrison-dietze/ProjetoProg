@@ -11,6 +11,7 @@ import { AppRoutingModule } from './routing/routing.module';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ListaComponent } from './lista/lista.component';
+import { CadastroProdutosComponent } from './cadastro-produtos/cadastro-produtos.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ListaComponent } from './lista/lista.component';
     CabecalhoComponent,
     CarrinhoComponent,
     ListaComponent,
+    CadastroProdutosComponent,
   ],
   imports: [
     HttpClientModule,

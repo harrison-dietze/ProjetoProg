@@ -23,9 +23,17 @@
   />
   <div class="menu" *ngIf="menuVisivel">
     <ul>
+      <li class="user-fixed">
+        <img
+          width="20px"
+          src="https://icon-library.com/images/profile-icon-white/profile-icon-white-6.jpg"
+        />{{ usuario }}
+      </li>
       <li>Itens mais vendidos</li>
       <li>Categorias</li>
-      <li *ngIf="isAdmin">Cadastro de Produtos</li>
+      <li (click)="direcionarCadastro()" *ngIf="isAdmin">
+        Cadastro de Produtos
+      </li>
       <li (click)="logOut()">Sair</li>
     </ul>
   </div>

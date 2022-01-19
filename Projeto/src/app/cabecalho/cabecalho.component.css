@@ -6,9 +6,16 @@
   z-index: 9999;
 }
 .menu {
+  width: 40%;
+  margin: 1%;
+  padding-right: 3%;
+  padding-left: 3%;
+  padding-bottom: 3%;
+  border: solid 1px;
+  border-color: aliceblue;
   cursor: pointer;
   position: fixed;
-  top: 5%;
+  top: 6%;
   left: 1%;
 }
 
@@ -30,17 +37,17 @@
 }
 
 ul {
-  box-shadow: 0 5px 25px rgba(255, 255, 255, 0.192);
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
 li {
+  min-width: 90%;
   border: solid 1px;
   border-color: aliceblue;
   border-radius: 10px;
-  min-width: 100%;
+  min-width: 90%;
   margin-right: 10%;
   margin-top: 10%;
   padding: 5%;
@@ -48,6 +55,7 @@ li {
 }
 
 li:hover {
+  min-width: 90%;
   border: solid 1px;
   border-color: black;
   color: black;
@@ -61,4 +69,26 @@ input {
   width: 50%;
   position: fixed;
   left: 20%;
+}
+.user-fixed {
+  border-radius: 0px;
+  cursor: default;
+  border: solid 1px;
+  border-color: aliceblue;
+  min-width: 90%;
+  margin-right: 10%;
+  padding: 5%;
+  background-color: rgb(32, 33, 36);
+}
+.user-fixed:hover {
+  border-radius: 0px;
+  color: rgba(211, 211, 211, 0.884);
+  cursor: default;
+  border: solid 1px;
+  border-color: aliceblue;
+
+  margin-right: 10%;
+  margin-top: 10%;
+  padding: 5%;
+  background-color: rgb(32, 33, 36);
 }
