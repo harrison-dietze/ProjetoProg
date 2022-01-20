@@ -1,6 +1,25 @@
 #descricao {
   height: 10em;
 }
+.imagem {
+  max-height: 100%;
+  position: fixed;
+  top: 35%;
+  right: 55%;
+}
+
+.cadastro {
+  display: flex;
+  flex-direction: column;
+}
 input[type="file"] {
   color: rgb(32, 33, 36);
+}
+
+textarea {
+  width: 10em;
+}
+
+input {
+  width: 10em;
 }

@@ -75,5 +75,50 @@ if (isset($_POST['produtoCadastrar']) && $_POST['produtoCadastrar']){
     }
 }
 
+if (isset($_POST['produtoExcluir']) && $_POST['produtoExcluir']){
+
+    $produto = json_decode($_POST['produtoExcluir']);
+    $nome = $produto->nome;
+
+    $sqlVerificar = "SELECT nome FROM produto WHERE nome = '$nome'";
+
+    $db = new DB();
+
+    $verificacao =  $db->consultar($sqlVerificar);
+
+    if($verificacao == []){
+        echo json_decode("Nenhum produto com este nome!");
+    } else {
+        $sqlExcluir = "DELETE FROM produto WHERE nome = '$nome'";
+        $resultado = $db->excluir($sqlInserir);
+        echo json_encode("Produto excluido com sucesso!");
+    }
+}
+
+if(isset($_POST['produtoEditar']) && $_POST['produtoEditar']){
+
+    $produto = json_decode($_POST['produtoEditar']);
+    $nome = $produto->nome;
+    $descricao = $produto->descricao;
+    $valor = $produto->valor;
+    $estoque = $produto->estoque;
+    $imagem = $produto->imagem;
+
+    $sqlVerificar = "SELECT nome FROM produto WHERE nome = '$nome'";
+
+    $db = new DB();
+
+    $verificacao = $db->consultar($sqlVerificar);
+
+    if($verificacao == []){
+        echo json_decode("Nenhum produto para editar com este nome!");
+    } else {
+        $sqlEditar = "UPDATE FROM produto (nome,descricao,valor,estoque,imagem) VALUES ('$nome', '$descricao', '$valor', '$estoque', '$imagem')";
+        $resultado = $db->editar($sqlEditar);
+        echo json_encode("Produto editado com sucesso!");
+    }
+
+}
+
 
 ?>

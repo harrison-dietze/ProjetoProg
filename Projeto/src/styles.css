@@ -155,10 +155,21 @@ ul {
 
 .cadastro {
   display: fixed;
-  margin: 50%;
+  margin-top: 50%;
+  margin-left: 50%;
 }
 
 textarea {
   outline: none;
   border-radius: 10px;
+}
+.salvar-botao {
+  cursor: pointer;
+  width: 5em;
+  font-family: Segoe UI, Segoe UI Midlevel, Segoe WP, Arial, sans-serif;
+  font-size: large;
+  border-style: unset;
+  border-radius: 3px;
+  background-color: #4a4a4a;
+  color: rgba(211, 211, 211, 0.884);
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UploadService } from '../upload.service';
 
 @Component({
   selector: 'app-cadastro-produtos',
@@ -7,22 +8,38 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./cadastro-produtos.component.css'],
 })
 export class CadastroProdutosComponent implements OnInit {
-  constructor() {}
+  constructor(private fileUploadService: UploadService) {}
 
+  upload: FormData;
   produto: FormGroup;
-  imagemURL = '';
+  imagemURL: any;
+  arquivo: File;
 
   ngOnInit(): void {
     this.produto = new FormGroup({
-      nome: new FormControl(),
-      descricao: new FormControl(),
-      imagem: new FormControl(),
+      nome: new FormControl('', Validators.required),
+      descricao: new FormControl('', Validators.required),
+      imagem: new FormControl('', Validators.required),
     });
   }
 
   fileInput = (imagem) => {
-    this.imagemURL = URL.createObjectURL(imagem[0]);
-    this.imagemURL = this.imagemURL.replace('blob:', '');
-    console.log(this.imagemURL);
+    if (imagem[0]) {
+      this.arquivo = imagem[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(imagem[0]);
+      reader.onload = (event: any) => {
+        this.imagemURL = event.target.result;
+      };
+    }
+  };
+  salvarProduto = () => {
+    this.upload = new FormData();
+    this.upload.append(
+      'uploadImagem',
+      this.arquivo,
+      this.produto.get('nome').value
+    );
+    this.fileUploadService.postar(this.upload);
   };
 }

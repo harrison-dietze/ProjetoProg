@@ -1,6 +1,12 @@
 <app-cabecalho></app-cabecalho>
-<img width="50%" src="{{ imagemURL }}" />
-<form class="cadastro" [formGroup]="produto">
+<img
+  *ngIf="!imagemURL"
+  class="imagem"
+  width="40%"
+  src="https://www.gattacamoon.eu/wp/wp-content/uploads/2020/01/50-505769_gallery-gallery-white-icon-png.png"
+/>
+<img class="imagem" width="40%" [src]="imagemURL" />
+<form class="cadastro" [formGroup]="produto" (ngSubmit)="salvarProduto()">
   <label for="nome">Nome:</label>
   <input id="nome" formControlName="nome" />
   <label for="descricao">Descricão:</label>
@@ -13,4 +19,5 @@
     id="imagem"
     formControlName="imagem"
   />
+  <button class="salvar-botao" type="submit">Salvar</button>
 </form>
