@@ -55,6 +55,16 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`nome`, `senha`, `permissao`) VALUES
 ('Harrison', '123456', 'usuario');
 
+INSERT INTO `usuario` (`nome`, `senha`, `permissao`) VALUES
+('adm1', 'adm1', 'admin');
+
+INSERT INTO `usuario` (`nome`, `senha`, `permissao`) VALUES
+('ViníciusADM', '1234', 'admin');
+
+INSERT INTO `usuario` (`nome`, `senha`, `permissao`) VALUES
+('ViníciusUSR', '1234', 'admin');
+
+
 -- --------------------------------------------------------
 
 --

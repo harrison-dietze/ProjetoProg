@@ -24,7 +24,7 @@
   <div class="menu" *ngIf="menuVisivel">
     <ul>
       <li class="user-fixed">
-        <img
+        <img 
           width="20px"
           src="https://icon-library.com/images/profile-icon-white/profile-icon-white-6.jpg"
         />{{ usuario }}
@@ -36,5 +36,12 @@
       </li>
       <li (click)="logOut()">Sair</li>
     </ul>
+
   </div>
+    <img
+    class="logo"
+    (click)="botaoHome()"
+    width="14%"
+    src="https://i.imgur.com/XCLaqk8.png" title="Home"/>
+
 </div>

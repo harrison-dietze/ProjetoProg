@@ -1,7 +1,7 @@
 .icon-menu {
   position: fixed;
-  top: 1%;
-  left: 1%;
+  top: 1.7%;
+  left: 1.5%;
   cursor: pointer;
   z-index: 9999;
 }
@@ -26,7 +26,7 @@
   border-radius: 10px;
   position: fixed;
   top: 1%;
-  right: 20%;
+  right: 12%;
   width: 7%;
   height: 4.5%;
 }
@@ -34,7 +34,7 @@
 .carrinho-icon {
   cursor: pointer;
   position: fixed;
-  top: -0.5%;
+  top: 0.5%;
   right: 1%;
 }
 
@@ -70,7 +70,7 @@ input {
   height: 3.5%;
   width: 50%;
   position: fixed;
-  left: 20%;
+  left: 28%;
 }
 .user-fixed {
   border-radius: 0px;

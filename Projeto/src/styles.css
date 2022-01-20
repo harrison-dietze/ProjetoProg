@@ -12,6 +12,14 @@
   width: 100%;
 }
 
+/** Logo **/
+.logo {
+  position:  fixed;
+  right: 74.5%;
+  top: 1%; 
+}
+
+
 /** TELA DE LOGIN **/
 
 .form-login-login {

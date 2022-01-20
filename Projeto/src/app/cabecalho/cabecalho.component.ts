@@ -27,6 +27,10 @@ export class CabecalhoComponent implements OnInit {
     location.href = '/carrinho';
   };
 
+  botaoHome = () => {
+    location.href = '/home';
+  };
+
   tratarMenu() {
     this.menuVisivel = !this.menuVisivel;
   }
