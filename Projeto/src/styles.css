@@ -19,14 +19,28 @@
   top: 1%; 
 }
 
-
 /** TELA DE LOGIN **/
+
+.logoLogin {
+  position:  fixed;
+  right: 24.5%;
+  top: 10%; 
+}
+
+.form-login-posicao {
+  position: fixed;
+  top: 30%;
+  right: 27%;
+}
 
 .form-login-login {
   max-width: 100%;
   align-items: center;
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 30%;
+  right: 27%;
 }
 
 .div-usuario-login {
@@ -114,8 +128,9 @@
 
 .button-entrar-login {
   cursor: pointer;
-  justify-self: flex-end;
-  width: 100%;
+  margin-bottom: 5%;
+  align-self: center;
+  width: 70%;
   font-family: Segoe UI, Segoe UI Midlevel, Segoe WP, Arial, sans-serif;
   font-size: large;
   border-style: unset;
