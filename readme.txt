@@ -7,10 +7,13 @@ sudo apt-get install nodejs
 no terminal, na pasta Projeto (com node.js instalado):
 npm install
 npm install --save-dev @angular-devkit/build-angular
-ng serve
+ng serve -o
+
+caso não inicie, executar:
+npm install -g @angular/cli
 
 importar backend/banco.sql no phpmyadmin
 colar a pasta backend/ dentro da pasta htdocs/
 
-Nome do Usuário Administrador: ViníciusADM
-Senha: 123456
+nome do usuário administrador: ViníciusADM
+senha: 123456
