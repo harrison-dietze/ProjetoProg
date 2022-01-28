@@ -4,7 +4,7 @@ caso não tenha node:
 sudo apt-get install nodejs
 
 
-Projeto com node.js instalado:
+no terminal, na pasta Projeto (com node.js instalado):
 npm install
 ng serve
 
