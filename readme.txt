@@ -19,3 +19,4 @@ nome do usuário administrador: ViníciusADM
 senha: 123456
 
 a tela de login será corrigida
+se possível, testar no modo mobile do navegador
