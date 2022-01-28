@@ -1,3 +1,9 @@
 .login {
   margin-top: 25%;
 }
+
+.login-text {
+  position: fixed;
+  right: 29%;
+  top: 66%;
+}
