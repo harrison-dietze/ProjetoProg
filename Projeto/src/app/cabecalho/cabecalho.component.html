@@ -3,15 +3,12 @@
     (click)="tratarMenu()"
     class="icon-menu"
     width="7%"
-    src="https://www.pinclipart.com/picdir/big/181-1812493_menu-white-menu-button-png-clipart.png"
+    src="assets/imagens/menu.png"
   />
   <form [formGroup]="pesquisaForm" (ngSubmit)="onPesquisar()">
     <input formControlName="pesquisa" />
     <button class="search" type="submit">
-      <img
-        width="80%"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Search_icon.svg/480px-Search_icon.svg.png"
-      />
+      <img width="110%" src="assets/imagens/search.png" />
     </button>
   </form>
   <img
@@ -24,7 +21,7 @@
   <div class="menu" *ngIf="menuVisivel">
     <ul>
       <li class="user-fixed">
-        <img 
+        <img
           width="20px"
           src="https://icon-library.com/images/profile-icon-white/profile-icon-white-6.jpg"
         />{{ usuario }}
@@ -36,12 +33,12 @@
       </li>
       <li (click)="logOut()">Sair</li>
     </ul>
-
   </div>
-    <img
+  <img
     class="logo"
     (click)="botaoHome()"
     width="14%"
-    src="https://i.imgur.com/XCLaqk8.png" title="Home"/>
-
+    src="https://i.imgur.com/XCLaqk8.png"
+    title="Home"
+  />
 </div>

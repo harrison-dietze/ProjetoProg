@@ -3,10 +3,15 @@
   *ngIf="!imagemURL"
   class="imagem"
   width="40%"
-  src="https://www.gattacamoon.eu/wp/wp-content/uploads/2020/01/50-505769_gallery-gallery-white-icon-png.png"
+  src="assets/imagens/img.png"
 />
 <img class="imagem" width="40%" [src]="imagemURL" />
-<form class="cadastro" [formGroup]="produto" (ngSubmit)="salvarProduto()">
+<form
+  enctype="multipart/form-data"
+  class="cadastro"
+  [formGroup]="formProduto"
+  (ngSubmit)="salvarProduto()"
+>
   <label for="nome">Nome:</label>
   <input id="nome" formControlName="nome" />
   <label for="descricao">Descricão:</label>
