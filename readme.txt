@@ -17,3 +17,5 @@ colar a pasta backend/ dentro da pasta htdocs/
 
 nome do usuário administrador: ViníciusADM
 senha: 123456
+
+a tela de login será corrigida
