@@ -1,6 +1,7 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CadastroProdutosService } from '../cadastro-produtos.service';
+import { ProdutosService } from '../produtos.service';
 import { UploadService } from '../upload.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { UploadService } from '../upload.service';
 export class CadastroProdutosComponent implements OnInit {
   constructor(
     private fileUploadService: UploadService,
-    private cadastroProdutoService: CadastroProdutosService
+    private produtoService: ProdutosService,
+    private pipeMonetaria: CurrencyPipe
   ) {}
 
   upload: FormData;
@@ -20,13 +22,19 @@ export class CadastroProdutosComponent implements OnInit {
   arquivo: File;
   produto: any;
   dados: FormData;
+  //precoNumber: number;
+  isEdicao: boolean = false;
 
   ngOnInit(): void {
     this.formProduto = new FormGroup({
       nome: new FormControl('', Validators.required),
       descricao: new FormControl('', Validators.required),
+      estoque: new FormControl('', Validators.required),
+      valor: new FormControl('', Validators.required),
       imagem: new FormControl(null, Validators.required),
     });
+
+    //this.aplicarMascaraValor();
   }
 
   fileInput = (imagem) => {
@@ -66,14 +74,17 @@ export class CadastroProdutosComponent implements OnInit {
             nome: this.formProduto.get('nome').value,
             imagem: res,
             descricao: this.formProduto.get('descricao').value,
-            estoque: 0,
-            valor: 6.0,
+            estoque: this.formProduto.get('estoque').value,
+            valor: this.formProduto.get('valor').value,
           };
           this.dados = new FormData();
           this.dados.append('produtoCadastrar', JSON.stringify(this.produto));
-          this.cadastroProdutoService
+          this.produtoService
             .cadastroProdutosService(this.dados)
-            .subscribe((res) => {});
+            .subscribe((res) => {
+              this.formProduto.disable();
+              this.isEdicao = true;
+            });
         });
       } else {
         alert('Tipo de arquivo inválido.');
@@ -94,4 +105,19 @@ export class CadastroProdutosComponent implements OnInit {
       return true;
     }
   };
+
+  /*
+  aplicarMascaraValor = () => {
+    //função para valor monetário e evitar uso do input type="number"
+    let parser = this.formProduto.get('valor').value;
+    if (isNaN(parser)) {
+      this.formProduto.get('valor').reset();
+      alert('Insira um valor válido.');
+      return;
+    }
+    this.precoNumber = parser / 100;
+    parser = this.pipeMonetaria.transform(parser);
+    this.formProduto.get('valor').patchValue(parser);
+  };
+  */
 }

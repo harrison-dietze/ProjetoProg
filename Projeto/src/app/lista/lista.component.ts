@@ -7,8 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListaComponent implements OnInit {
   @Input() itens = [];
-
+  @Input() isCarrinho = false;
   constructor() {}
 
   ngOnInit(): void {}
+
+  detalharProduto = (item: string) => {
+    if (localStorage.getItem('permissao') != 'admin') {
+      location.href = 'produto/' + item;
+    } else {
+      location.href = 'cadastro/' + item;
+    }
+  };
 }

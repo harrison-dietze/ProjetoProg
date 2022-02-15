@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 11-Jan-2022 às 20:14
--- Versão do servidor: 10.4.10-MariaDB
--- versão do PHP: 7.3.12
+-- Host: localhost
+-- Generation Time: Feb 05, 2022 at 08:25 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,38 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `cleimstore`
+-- Database: `cleimstore`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Table structure for table `carrinho`
+--
+
+CREATE TABLE `carrinho` (
+  `id` bigint(20) NOT NULL,
+  `nome_usuario` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `item`
+--
+
+CREATE TABLE `item` (
+  `id` bigint(20) NOT NULL,
+  `nome_produto` varchar(200) DEFAULT NULL,
+  `quantidade` int(11) DEFAULT NULL,
+  `id_carrinho` bigint(20) DEFAULT NULL,
+  `id_venda` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `produto`
 --
 
 CREATE TABLE `produto` (
@@ -39,7 +63,7 @@ CREATE TABLE `produto` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -49,74 +73,80 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`nome`, `senha`, `permissao`) VALUES
-('adm1', 'adm1', 'admin');
-
-INSERT INTO `usuario` (`nome`, `senha`, `permissao`) VALUES
+('adm1', 'adm1', 'admin'),
 ('ViníciusADM', '123456', 'admin');
-
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `vendas`
+-- Table structure for table `vendas`
 --
 
 CREATE TABLE `vendas` (
   `usuario` varchar(20) DEFAULT NULL,
-  `produto` varchar(200) DEFAULT NULL,
   `valor` float DEFAULT NULL,
-  `quantiedade` int(11) DEFAULT NULL,
   `id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `produto`
+-- Indexes for table `carrinho`
+--
+ALTER TABLE `carrinho`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_usuario` (`nome_usuario`);
+
+--
+-- Indexes for table `item`
+--
+ALTER TABLE `item`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nome_produto` (`nome_produto`),
+  ADD KEY `id_venda` (`id_venda`),
+  ADD KEY `id_carrinho` (`id_carrinho`);
+
+--
+-- Indexes for table `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`nome`);
 
 --
--- Índices para tabela `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`nome`);
 
 --
--- Índices para tabela `vendas`
+-- Indexes for table `vendas`
 --
 ALTER TABLE `vendas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario` (`usuario`),
-  ADD KEY `produto` (`produto`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `vendas`
---
-ALTER TABLE `vendas`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `vendas`
+-- Constraints for table `carrinho`
 --
-ALTER TABLE `vendas`
-  ADD CONSTRAINT `vendas_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuario` (`nome`),
-  ADD CONSTRAINT `vendas_ibfk_2` FOREIGN KEY (`produto`) REFERENCES `produto` (`nome`);
+ALTER TABLE `carrinho`
+  ADD CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`nome_usuario`) REFERENCES `usuario` (`nome`);
+
+--
+-- Constraints for table `item`
+--
+ALTER TABLE `item`
+  ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`nome_produto`) REFERENCES `produto` (`nome`),
+  ADD CONSTRAINT `item_ibfk_2` FOREIGN KEY (`id_venda`) REFERENCES `vendas` (`id`),
+  ADD CONSTRAINT `item_ibfk_3` FOREIGN KEY (`id_carrinho`) REFERENCES `carrinho` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -12,6 +12,8 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ListaComponent } from './lista/lista.component';
 import { CadastroProdutosComponent } from './cadastro-produtos/cadastro-produtos.component';
+import { CurrencyPipe } from '@angular/common';
+import { ProdutoComponent } from './produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { CadastroProdutosComponent } from './cadastro-produtos/cadastro-produtos
     CarrinhoComponent,
     ListaComponent,
     CadastroProdutosComponent,
+    ProdutoComponent,
   ],
   imports: [
     HttpClientModule,
@@ -29,7 +32,7 @@ import { CadastroProdutosComponent } from './cadastro-produtos/cadastro-produtos
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [LoginService],
+  providers: [LoginService, CurrencyPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

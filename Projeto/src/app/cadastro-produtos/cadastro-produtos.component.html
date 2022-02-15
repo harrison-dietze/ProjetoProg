@@ -13,9 +13,18 @@
   (ngSubmit)="salvarProduto()"
 >
   <label for="nome">Nome:</label>
-  <input id="nome" formControlName="nome" />
+  <input maxlength="50" id="nome" formControlName="nome" />
   <label for="descricao">Descricão:</label>
-  <textarea type="text" id="descricao" formControlName="descricao"></textarea>
+  <textarea
+    maxlength="200"
+    type="text"
+    id="descricao"
+    formControlName="descricao"
+  ></textarea>
+  <label for="valor">Preço:</label>
+  <input max="9999" id="preco" formControlName="valor" />
+  <label for="estoque">Estoque:</label>
+  <input max="999" id="estoque" formControlName="estoque" />
   <label for="imagem">Imagem:</label>
   <input
     (change)="fileInput($event.target.files)"
